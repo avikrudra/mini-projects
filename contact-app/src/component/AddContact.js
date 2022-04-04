@@ -3,7 +3,6 @@ class AddContact extends Component {
   constructor() {
     super();
     this.state = {
-      id: "",
       name: "",
       email: "",
     };
