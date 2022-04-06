@@ -15,6 +15,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import paella from "../Assests/Images/paella.jpg";
+import { IItems } from "../interfaces/IItems";
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -30,8 +31,9 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard(props: any) {
   const [expanded, setExpanded] = React.useState(false);
+  const item: IItems = props.productDescription;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -50,8 +52,8 @@ export default function RecipeReviewCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={item?.title}
+        subheader="April 04, 2022"
       />
       <CardMedia
         component="img"
@@ -61,9 +63,10 @@ export default function RecipeReviewCard() {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
+          {item.description}
+          {/* This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          mussels, if you like. */}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
